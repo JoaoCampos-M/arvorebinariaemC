@@ -8,6 +8,8 @@ struct NO{
   struct NO *dir;
 }
 
+int conta_NO = 0;
+
 ArvBin* raiz;
 
 ArvBin*cria_ArvBin(){
@@ -19,18 +21,20 @@ ArvBin*cria_ArvBin(){
 
 CriaArvBin raiz = cria_ArvBin();
 
-void libera_NO (struct NO* no){
+void conta_NO (struct NO* no){
+    conta_NO++;
     if(no == NULL)
         return;
-    libera_NO(no->esq);
-    libera_NO(no->dir);
-    free(no);
-    no = NULL;
+    conta_NO(no->esq);
+    conta_NO(no->dir);
+
  }
- void libera_ArvBin(ArvBin* raiz) {
+ void conta_ArvBin(ArvBin* raiz) {
     if(raiz == NULL)
         return;
-        libera_mo(*raiz);
-        free (raiz)
+        conta_NO(*raiz);
+        printf(conta_NO)
+        counta (raiz);
  }
  
+ int main();
