@@ -1,3 +1,5 @@
 typedef struct NO* ArvBin;
 
-void libera_ArvBin (ArvBin *raiz)
+ArvBin* cria_ArvBin();
+
+void libera_ArvBin (ArvBin *raiz);
