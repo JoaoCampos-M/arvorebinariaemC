@@ -10,6 +10,15 @@ struct NO{
 
 ArvBin* raiz;
 
+ArvBin*cria_ArvBin(){
+  ArvBin*raiz = (CriaArvBin*) malloc(sizeof (CriaArvBin));
+  if(raiz != NULL)
+    *raiz = NULL
+    return raiz;
+}
+
+CriaArvBin raiz = cria_ArvBin();
+
 void libera_NO (struct NO* no){
     if(no == NULL)
         return;
