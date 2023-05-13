@@ -1,40 +1,36 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include"ArvoreBinaria.h"
+#include <stdio.h>
+#include <stdlib.h>
 
-struct NO{
-  int info;
-  struct NO *esq;
-  struct NO *dir;
+struct Node {
+    int value;
+    struct Node* left;
+    struct Node* right;
+};
+
+struct Node* create_node(int value) {
+    struct Node* node = (struct Node*) malloc(sizeof(struct Node));
+    node->value = value;
+    node->left = NULL;
+    node->right = NULL;
+    return node;
 }
 
-int conta_NO = 0;
-
-ArvBin* raiz;
-
-ArvBin*cria_ArvBin(){
-  ArvBin*raiz = (CriaArvBin*) malloc(sizeof (CriaArvBin));
-  if(raiz != NULL)
-    *raiz = NULL
-    return raiz;
+int count_nodes(struct Node* node) {
+    if (node == NULL)
+        return 0;
+    else
+        return 1 + count_nodes(node->left) + count_nodes(node->right);
 }
 
-CriaArvBin raiz = cria_ArvBin();
+int main() {
+    // Exemplo de uso
+    struct Node* root = create_node(1);
+    root->left = create_node(2);
+    root->right = create_node(3);
+    root->left->left = create_node(4);
+    root->left->right = create_node(5);
 
-void conta_NO (struct NO* no){
-    conta_NO++;
-    if(no == NULL)
-        return;
-    conta_NO(no->esq);
-    conta_NO(no->dir);
+    printf("%d", count_nodes(root)); // saída: 5
 
- }
- void conta_ArvBin(ArvBin* raiz) {
-    if(raiz == NULL)
-        return;
-        conta_NO(*raiz);
-        printf(conta_NO)
-        counta (raiz);
- }
- 
- int main();
+    return 0;
+}
