@@ -1,36 +1,36 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct Node {
+struct No {
     int value;
-    struct Node* left;
-    struct Node* right;
+    struct No* esq;
+    struct No* dir;
 };
 
-struct Node* create_node(int value) {
-    struct Node* node = (struct Node*) malloc(sizeof(struct Node));
-    node->value = value;
-    node->left = NULL;
-    node->right = NULL;
-    return node;
+struct No* cria_no(int value) {
+    struct No* no = (struct No*) malloc(sizeof(struct No));
+    no->value = value;
+    no->esq = NULL;
+    no->dir = NULL;
+    return no;
 }
 
-int count_nodes(struct Node* node) {
-    if (node == NULL)
+int conta_nos(struct No* no) {
+    if (no == NULL)
         return 0;
     else
-        return 1 + count_nodes(node->left) + count_nodes(node->right);
+        return 1 + conta_nos(no->esq) + conta_nos(no->dir);
 }
 
 int main() {
     // Exemplo de uso
-    struct Node* root = create_node(1);
-    root->left = create_node(2);
-    root->right = create_node(3);
-    root->left->left = create_node(4);
-    root->left->right = create_node(5);
+    struct No* raiz = cria_no(1);
+    raiz->esq = cria_no(2);
+    raiz->dir = cria_no(3);
+    raiz->esq->esq = cria_no(4);
+    raiz->esq->dir = cria_no(5);
 
-    printf("%d", count_nodes(root)); // saída: 5
+    printf("%d", conta_nos(raiz)); // saída: 5
 
     return 0;
 }
