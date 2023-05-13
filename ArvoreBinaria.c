@@ -9,3 +9,19 @@ struct NO{
 }
 
 ArvBin* raiz;
+
+void libera_NO (struct NO* no){
+    if(no == NULL)
+        return;
+    libera_NO(no->esq);
+    libera_NO(no->dir);
+    free(no);
+    no = NULL;
+ }
+ void libera_ArvBin(ArvBin* raiz) {
+    if(raiz == NULL)
+        return;
+        libera_mo(*raiz);
+        free (raiz)
+ }
+ 
