@@ -16,6 +16,7 @@ struct No* cria_no(int value) {
     return no;
 }
 
+//resposta da questao 1.a
 //conta dos nos
 int conta_nos(struct No* no) {
     if (no == NULL)
@@ -24,6 +25,7 @@ int conta_nos(struct No* no) {
         return 1 + conta_nos(no->esq) + conta_nos(no->dir); 
 }
 
+//resposta da questao 1.b
 //quantidade de nos não folha
 int conta_nos_nao_folha(struct No* no) {
     if (no == NULL || (no->esq == NULL && no->dir == NULL)) //verifica se o no possui filho
@@ -32,6 +34,7 @@ int conta_nos_nao_folha(struct No* no) {
         return 1 + conta_nos_nao_folha(no->esq) + conta_nos_nao_folha(no->dir);
 }
 
+//resposta da questao 1.c
 //altura da arvore
 int altura(struct No* no) {
     if (no == NULL)
@@ -46,6 +49,7 @@ int altura(struct No* no) {
     }
 }
 
+//resposta da questao 1.d
 //soma dos valores da arvore
 int soma_arvore(struct No* no) {
     if (no == NULL)
@@ -54,6 +58,7 @@ int soma_arvore(struct No* no) {
         return no->value + soma_arvore(no->esq) + soma_arvore(no->dir); //pega todos os valores dos nos de ambos os lados da arvore e soma eles
 }
 
+//resposta da questao 1.e
 //calculo da média
 float media(struct No* no) {
     int num_nos = conta_nos(no); 
