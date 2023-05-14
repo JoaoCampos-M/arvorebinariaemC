@@ -54,6 +54,7 @@ int main() {
     int* vetor = (int*)malloc(sizeof(int) * tamanho_arvore ); // Aloca espaço para o vetor
     int count = 0;
     elementos_menores_que_n(raiz, n, vetor, &count);
+     printf("Valores menores que %d na arvore: \n",n);
     for (int i = 0; i < count; i++) {
         printf("%d ", vetor[i]);
     }
