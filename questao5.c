@@ -21,10 +21,10 @@ int nos_com_unico_fileo(struct No* no) {
     if (no == NULL)
         return 0;
     int count = 0;
-    if ((no->esq != NULL && no->dir == NULL) || (no->esq == NULL && no->dir != NULL))
+    if ((no->esq != NULL && no->dir == NULL) || (no->esq == NULL && no->dir != NULL))// verifica esq e dir, caso tenha filho em so 1 deles, caso isso, conta
         count = 1;
-    count += nos_com_unico_fileo(no->esq);
-    count += nos_com_unico_fileo(no->dir);
+    count += nos_com_unico_fileo(no->esq);// quantidade de filhos esq
+    count += nos_com_unico_fileo(no->dir);// quantidade de filhos dir
     return count;
 }
 
