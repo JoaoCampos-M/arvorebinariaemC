@@ -20,9 +20,9 @@ struct No* cria_no(int value) {
 int e_estritamente_binaria(struct No* no) {
     if (no == NULL)
         return 1;
-    if (no->esq == NULL && no->dir == NULL)
+    if (no->esq == NULL && no->dir == NULL)//verifica cada arvore e cada sub arvore vendo se ela tem 0 nos filhos
         return 1;
-    if (no->esq != NULL && no->dir != NULL)
+    if (no->esq != NULL && no->dir != NULL) //verifica a arvore e cada sub arvore vendo se ela tem 2 nos filhos
         return e_estritamente_binaria(no->esq) && e_estritamente_binaria(no->dir);
     return 0;
 }
